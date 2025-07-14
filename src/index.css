@@ -1,1 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
 @import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+@theme {
+    --breakpoint-sm: 675px;
+    --color-coral-red: rgb(255, 100, 82);
+    --color-pale-blue: rgb(245, 246, 255);
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-palanquin: 'Palanquin', sans-serif;
+    --background-image-collection: url('./assets/images/collection-background.svg');
+    --background-image-thumbnail: url('./assets/images/thumbnail-background.svg');
+}
+
+@layer base {
+body {
+    @apply bg-white text-gray-900 font-montserrat w-full;
+}
+
+}
+
+@layer components {
+    .btn {
+        @apply px-7 py-4 rounded-full bg-coral-red text-white font-normal flex items-center justify-center gap-3 leading-none;
+    }
+
+}
+
+@layer utilities {
+    .max-container {
+        @apply max-w-[1440px] mx-auto;
+    }
+
+    .padding-x {
+        @apply px-8 sm:px-16;
+    }
+
+    .section-padding {
+        @apply sm:py-24 py-12 sm:px-16 px-8;  
+    }
+
+    .thumbnail-hover {
+        &:hover {
+            @apply cursor-pointer scale-102 transition-transform duration-300;
+        }
+    }
+    
+}
