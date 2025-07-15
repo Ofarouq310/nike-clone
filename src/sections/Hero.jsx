@@ -1,8 +1,20 @@
 import arrowRight from '../assets/icons/arrow-right.svg';
 import {bigShoe1} from '../assets/images/index.js';
-import { thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from '../assets/images/index.js';
+import ThumbnailShoe from '../components/ThumbnailShoe.jsx';
+import {thumbnailCollection} from "../constants/index.js";
+import { useState } from 'react';
+
 
 export default function Hero() {
+
+  const [heroImage, setHeroImage] = useState(bigShoe1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const handleClick = (thumbnail, index) => {
+    setHeroImage(thumbnail.fullImg);
+    setSelectedIndex(index);
+  }
+
   return (
     <section className="flex flex-col xl:flex-row justify-center pb-24 gap-10 max-container" id="home">
       <div className="flex flex-col gap-6 justify-center items-start pt-25 xl:w-2/5 max-sm:pl-8 sm:pl-16 min-[1450px]:pl-8 min-[1570px]:pl-0">
@@ -25,18 +37,14 @@ export default function Hero() {
       </div>
 
       <div className='relative flex-1 justify-center items-center xl:min-h-screen max-xl:py-40 bg-collection bg-cover bg-center'>
-        <img src={bigShoe1} alt="Big Shoe" className="w-full h-full object-scale-down" />
+        <img src={heroImage} alt="Big Shoe" className="w-full h-full object-scale-down" width={610} height={502} />
         
         <div className="flex absolute justify-around -bottom-[5%] sm:left-[10%] px-5 gap-4"> 
-          <div className='bg-thumbnail bg-cover bg-no-repeat rounded-2xl flex items-center justify-center max-sm:p-4 sm:w-40 sm:h-40 thumbnail-hover'>
-            <img src={thumbnailShoe1} alt="shoe image" className='object-contain' />
-          </div>
-          <div className='bg-thumbnail bg-cover bg-no-repeat rounded-2xl flex items-center justify-center max-sm:p-4 sm:w-40 sm:h-40 thumbnail-hover'>
-            <img src={thumbnailShoe2} alt="shoe image" className='object-contain' />
-          </div>
-          <div className='bg-thumbnail bg-cover bg-no-repeat rounded-2xl flex items-center justify-center max-sm:p-4 sm:w-40 sm:h-40 thumbnail-hover'>
-            <img src={thumbnailShoe3} alt="shoe image" className='object-contain' />
-          </div>
+          {thumbnailCollection.map((thumbnail, index) => {
+            return(
+              <ThumbnailShoe key={index} image={thumbnail.image} alt={thumbnail.alt} onClick={()=>handleClick(thumbnail, index)}  isSelected={index === selectedIndex} />
+            )
+          })}
         </div>
       </div>
 
