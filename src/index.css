@@ -31,7 +31,7 @@ body {
 
 @layer components {
     .btn {
-        @apply px-7 py-4 rounded-full bg-coral-red text-white font-normal flex items-center justify-center gap-3 leading-none;
+        @apply px-7 py-4 rounded-full cursor-pointer bg-coral-red text-white font-normal flex items-center justify-center gap-3 leading-none;
     }
 
 }
