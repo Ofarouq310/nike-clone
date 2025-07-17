@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     <section className="flex flex-col xl:flex-row justify-center pb-24 gap-10 max-container" id="home">
-      <div className="flex flex-col gap-6 justify-center items-start pt-25 xl:w-2/5 max-sm:pl-8 sm:pl-16 min-[1450px]:pl-8 min-[1570px]:pl-0">
+      <div className="flex flex-col gap-6 justify-center items-start pt-25 xl:w-2/5 max-sm:px-8 sm:pl-16 min-[1450px]:pl-8 min-[1570px]:pl-0">
           <p className="text-coral-red text-lg">Our Summer collections</p>
 
           <h1 className='font-palanquin font-bold text-8xl/snug max-sm:text-7xl max-sm:leading-[100px] relative z-10'>
