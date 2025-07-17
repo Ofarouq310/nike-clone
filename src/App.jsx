@@ -1,4 +1,5 @@
 import Nav from "./components/Nav";
+import ScrollBtn from "./components/ScrollBtn";
 import {Hero, Popular, SuperQuality,
   Services, SpecialOffer, CustomerReview,
   Subscribe, Footer} from "./sections/index";
@@ -29,6 +30,7 @@ export default function App (){
         <Subscribe />
       </section>
       <Footer />
+      <ScrollBtn />
     </main>
   )
 }
